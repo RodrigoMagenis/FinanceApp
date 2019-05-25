@@ -1,0 +1,11 @@
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\bin\Debug\FinanceApp.exe.config
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\bin\Debug\FinanceApp.exe
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\bin\Debug\FinanceApp.pdb
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.csprojAssemblyReference.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.csproj.CoreCompileInputs.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.exe
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.pdb
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.commons.LoginPage.resources
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.commons.MainPage.resources
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.csproj.GenerateResource.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\FinanceApp\obj\Debug\FinanceApp.StratificationPage.resources

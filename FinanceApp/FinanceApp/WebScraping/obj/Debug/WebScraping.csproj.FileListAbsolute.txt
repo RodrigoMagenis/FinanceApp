@@ -1,0 +1,12 @@
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebScraping.exe.config
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebScraping.exe
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebScraping.pdb
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebDriver.dll
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebDriver.xml
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\obj\Debug\WebScraping.csprojAssemblyReference.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\obj\Debug\WebScraping.csproj.CoreCompileInputs.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\obj\Debug\WebScraping.csproj.CopyComplete
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\obj\Debug\WebScraping.exe
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\obj\Debug\WebScraping.pdb
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebDriver.Support.dll
+D:\Github\FinanceApp\FinanceApp\FinanceApp\WebScraping\bin\Debug\WebDriver.Support.xml

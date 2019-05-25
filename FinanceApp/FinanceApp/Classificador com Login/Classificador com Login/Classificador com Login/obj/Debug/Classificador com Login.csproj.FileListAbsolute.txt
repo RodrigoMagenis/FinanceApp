@@ -1,0 +1,39 @@
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csprojAssemblyReference.cache
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.Properties.Resources.resources
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaCadastrarUsuario.resources
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaLogin.resources
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaPrincipal.resources
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csproj.GenerateResource.cache
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csproj.CoreCompileInputs.cache
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.exe.config
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.exe
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.pdb
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.exe
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.pdb
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaBuscarUsuario.resources
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaClassificador.resources
+D:\Visual Studio\Projetos e Soluções\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaRemoverUsuario.resources
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.exe.config
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.exe
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.pdb
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csprojAssemblyReference.cache
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.Properties.Resources.resources
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaClassificador.resources
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaLogin.resources
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaPrincipal.resources
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csproj.GenerateResource.cache
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csproj.CoreCompileInputs.cache
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.exe
+E:\Trabalhos\Projeto Interdisciplinar 2019 - 1\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.pdb
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.exe.config
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.exe
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\bin\Debug\Classificador com Login.pdb
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csprojAssemblyReference.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.Properties.Resources.resources
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaClassificador.resources
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaLogin.resources
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador_com_Login.TelaPrincipal.resources
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csproj.GenerateResource.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.csproj.CoreCompileInputs.cache
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.exe
+D:\Github\FinanceApp\FinanceApp\FinanceApp\Classificador com Login\Classificador com Login\Classificador com Login\obj\Debug\Classificador com Login.pdb

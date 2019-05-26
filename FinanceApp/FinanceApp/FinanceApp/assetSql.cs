@@ -20,7 +20,8 @@ namespace FinanceApp
                          $"INNER JOIN ASSETPRICE ASPRICE ON (ASPRICE.CDCOMPANY = ASSET.CDCOMPANY) " +
                          $"WHERE ASSET.CDNEGOCIATION = '{idasset}' " +
                                 $"AND ASPRICE.DTPRICE >= '{dtstart}' " +
-                                $"AND ASPRICE.DTPRICE <= '{dtend}' ";
+                                $"AND ASPRICE.DTPRICE <= '{dtend}' " +
+                        $"ORDER BY ASPRICE.DTPRICE";
             return conn.Execute(sql);
         }
         

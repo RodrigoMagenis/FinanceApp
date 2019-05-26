@@ -37,68 +37,38 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.growthChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.accelerationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.assetPriceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dtstart = new System.Windows.Forms.DateTimePicker();
             this.dtend = new System.Windows.Forms.DateTimePicker();
             this.btnsearch = new System.Windows.Forms.Button();
             this.idasset = new System.Windows.Forms.TextBox();
+            this.growthChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.accelerationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.assetPriceChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.growthChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accelerationChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assetPriceChart)).BeginInit();
             this.SuspendLayout();
-            // 
-            // growthChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.growthChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.growthChart.Legends.Add(legend1);
-            this.growthChart.Location = new System.Drawing.Point(12, 196);
-            this.growthChart.Name = "growthChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.growthChart.Series.Add(series1);
-            this.growthChart.Size = new System.Drawing.Size(776, 118);
-            this.growthChart.TabIndex = 0;
-            // 
-            // accelerationChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.accelerationChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.accelerationChart.Legends.Add(legend2);
-            this.accelerationChart.Location = new System.Drawing.Point(12, 320);
-            this.accelerationChart.Name = "accelerationChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.accelerationChart.Series.Add(series2);
-            this.accelerationChart.Size = new System.Drawing.Size(776, 118);
-            this.accelerationChart.TabIndex = 1;
             // 
             // assetPriceChart
             // 
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisY.IsStartedFromZero = false;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY.MajorTickMark.Enabled = false;
-            chartArea3.Name = "ChartArea1";
-            this.assetPriceChart.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.assetPriceChart.Legends.Add(legend3);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.IsStartedFromZero = false;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.assetPriceChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.assetPriceChart.Legends.Add(legend1);
             this.assetPriceChart.Location = new System.Drawing.Point(12, 72);
             this.assetPriceChart.Name = "assetPriceChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.LabelAngle = 90;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
-            this.assetPriceChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.LabelAngle = 90;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.assetPriceChart.Series.Add(series1);
             this.assetPriceChart.Size = new System.Drawing.Size(776, 118);
             this.assetPriceChart.TabIndex = 2;
             // 
@@ -134,36 +104,81 @@
             this.idasset.Size = new System.Drawing.Size(100, 20);
             this.idasset.TabIndex = 7;
             // 
+            // growthChart
+            // 
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisY.IsStartedFromZero = false;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.MajorTickMark.Enabled = false;
+            chartArea2.Name = "ChartArea1";
+            this.growthChart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.growthChart.Legends.Add(legend2);
+            this.growthChart.Location = new System.Drawing.Point(12, 196);
+            this.growthChart.Name = "growthChart";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.LabelAngle = 90;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.growthChart.Series.Add(series2);
+            this.growthChart.Size = new System.Drawing.Size(776, 118);
+            this.growthChart.TabIndex = 8;
+            // 
+            // accelerationChart
+            // 
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisY.IsStartedFromZero = false;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.MajorTickMark.Enabled = false;
+            chartArea3.Name = "ChartArea1";
+            this.accelerationChart.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.accelerationChart.Legends.Add(legend3);
+            this.accelerationChart.Location = new System.Drawing.Point(12, 320);
+            this.accelerationChart.Name = "accelerationChart";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.LabelAngle = 90;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.accelerationChart.Series.Add(series3);
+            this.accelerationChart.Size = new System.Drawing.Size(776, 118);
+            this.accelerationChart.TabIndex = 9;
+            // 
             // StratificationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.accelerationChart);
+            this.Controls.Add(this.growthChart);
             this.Controls.Add(this.idasset);
             this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.dtend);
             this.Controls.Add(this.dtstart);
             this.Controls.Add(this.assetPriceChart);
-            this.Controls.Add(this.accelerationChart);
-            this.Controls.Add(this.growthChart);
             this.Name = "StratificationPage";
             this.Load += new System.EventHandler(this.StratificationPage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.assetPriceChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.growthChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accelerationChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assetPriceChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataVisualization.Charting.Chart growthChart;
-        private System.Windows.Forms.DataVisualization.Charting.Chart accelerationChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart assetPriceChart;
         private System.Windows.Forms.DateTimePicker dtstart;
         private System.Windows.Forms.DateTimePicker dtend;
         private System.Windows.Forms.Button btnsearch;
         private System.Windows.Forms.TextBox idasset;
+        private System.Windows.Forms.DataVisualization.Charting.Chart growthChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart accelerationChart;
     }
 }

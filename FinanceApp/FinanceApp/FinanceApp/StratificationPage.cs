@@ -58,12 +58,61 @@ namespace FinanceApp
 
                     if (cur.sqlData.Count() > 0)
                     {
-                        assetPriceChart.Series.Add(cur.sqlData[0][1]);
+                        String assetChartName = "Asset";
+                        Double auxValue = 0;
+                        Boolean hasAuxValue = false;
+                        assetPriceChart.Series.Clear();
+                        assetPriceChart.Series.Add(assetChartName);
+                        assetPriceChart.Series[assetChartName].ChartType = SeriesChartType.Line;
+                        assetPriceChart.Series[assetChartName].ChartArea = "ChartArea1";
+
+                        String growthChartName = "Growth";
+                        Double growthValue = 0;
+                        Double auxGrowthValue = 0;
+                        Boolean hasGrowthValue = false;
+                        Boolean hasAuxGrowthValue = false;
+                        growthChart.Series.Clear();
+                        growthChart.Series.Add(growthChartName);
+                        growthChart.Series[growthChartName].ChartType = SeriesChartType.Line;
+                        growthChart.Series[growthChartName].ChartArea = "ChartArea1";
+
+                        String accelerationChartName = "Acceleration";
+                        Double accelerationValue;
+                        accelerationChart.Series.Clear();
+                        accelerationChart.Series.Add(accelerationChartName);
+                        accelerationChart.Series[accelerationChartName].ChartType = SeriesChartType.Line;
+                        accelerationChart.Series[accelerationChartName].ChartArea = "ChartArea1";
                         foreach (var row in cur.sqlData)
                         {
-                            assetPriceChart.Series[row[1]].ChartType = SeriesChartType.Line;
-                            assetPriceChart.Series[row[1]].Points.AddXY(Convert.ToDateTime(row[2]).ToShortDateString(), row[3]);
-                            assetPriceChart.Series[row[1]].ChartArea = "ChartArea1";
+                            Double value = Convert.ToDouble(row[3]);
+                            String date = Convert.ToDateTime(row[2]).ToShortDateString();
+
+                            /* Gráfico de tendência */
+                            assetPriceChart.Series[assetChartName].Points.AddXY(date, value);
+
+                            /* Gráfico de crescimento */
+                            
+                            if (hasAuxValue)
+                            {
+                                if (hasGrowthValue)
+                                {
+                                    auxGrowthValue = growthValue;
+                                    hasAuxGrowthValue = true;
+                                }
+                                growthValue = value - auxValue;
+                                hasGrowthValue = true;
+                                growthChart.Series[growthChartName].Points.AddXY(date, (growthValue));
+                            }
+                            auxValue = value;
+                            hasAuxValue = true;
+
+                            /* Gráfico de aceleração */
+                            if (hasAuxGrowthValue)
+                            {
+                                accelerationValue = growthValue - auxGrowthValue;
+                                accelerationChart.Series[accelerationChartName].Points.AddXY(date, (accelerationValue));
+                            }
+                            growthValue = value;
                         }
                     }
                     else

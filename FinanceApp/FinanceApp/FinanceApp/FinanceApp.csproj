@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AssetSql.cs" />
     <Compile Include="Authentication.cs" />
+    <Compile Include="CalcFunctions.cs" />
     <Compile Include="Commons.cs" />
     <Compile Include="commons\LoginPage.cs">
       <SubType>Form</SubType>

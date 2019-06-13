@@ -61,7 +61,7 @@
             this.mainPageBody.Location = new System.Drawing.Point(2, 61);
             this.mainPageBody.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.mainPageBody.Name = "mainPageBody";
-            this.mainPageBody.Size = new System.Drawing.Size(1024, 466);
+            this.mainPageBody.Size = new System.Drawing.Size(1345, 663);
             this.mainPageBody.TabIndex = 1;
             // 
             // MainPage

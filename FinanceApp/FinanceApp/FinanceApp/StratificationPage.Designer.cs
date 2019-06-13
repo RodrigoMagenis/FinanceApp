@@ -51,6 +51,8 @@
             // 
             // assetPriceChart
             // 
+            this.assetPriceChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisY.IsStartedFromZero = false;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
@@ -106,6 +108,8 @@
             // 
             // growthChart
             // 
+            this.growthChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea2.AxisX.MajorGrid.Enabled = false;
             chartArea2.AxisY.IsStartedFromZero = false;
             chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
@@ -129,6 +133,8 @@
             // 
             // accelerationChart
             // 
+            this.accelerationChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea3.AxisX.MajorGrid.Enabled = false;
             chartArea3.AxisY.IsStartedFromZero = false;
             chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
@@ -163,6 +169,7 @@
             this.Controls.Add(this.dtstart);
             this.Controls.Add(this.assetPriceChart);
             this.Name = "StratificationPage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.StratificationPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.assetPriceChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.growthChart)).EndInit();

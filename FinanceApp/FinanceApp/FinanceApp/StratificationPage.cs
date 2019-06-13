@@ -45,8 +45,9 @@ namespace FinanceApp
         {
             assetPriceChart.Series.Clear();
             assetPriceChart.ResetAutoValues();
-            try
-            {
+            //try
+            //{
+                CalcFunctions calcFunctions = new CalcFunctions();
                 DateTime dataInicial = dtstart.Value.Date;
                 DateTime dataFinal = dtend.Value.Date.AddDays(1); // adiciona um dia para contar no término dele
                 if ((dataFinal - dataInicial).TotalMilliseconds > 0) //verifica se a data de fim é menor que a data de inicio
@@ -65,6 +66,17 @@ namespace FinanceApp
                         assetPriceChart.Series.Add(assetChartName);
                         assetPriceChart.Series[assetChartName].ChartType = SeriesChartType.Line;
                         assetPriceChart.Series[assetChartName].ChartArea = "ChartArea1";
+                        List<double> assetValues = new List<double>();
+                        foreach (var row in cur.sqlData)
+                        {
+                            assetValues.Add(Convert.ToDouble(row[3]));
+                        }
+                        String linearTrendName = "Trend";
+                        assetPriceChart.Series.Add(linearTrendName);
+                        assetPriceChart.Series[linearTrendName].ChartType = SeriesChartType.Line;
+                        assetPriceChart.Series[linearTrendName].ChartArea = "ChartArea1";
+                    var linearTrendValues = calcFunctions.LinearTrend(assetValues);
+
 
                         String growthChartName = "Growth";
                         Double growthValue = 0;
@@ -82,13 +94,18 @@ namespace FinanceApp
                         accelerationChart.Series.Add(accelerationChartName);
                         accelerationChart.Series[accelerationChartName].ChartType = SeriesChartType.Line;
                         accelerationChart.Series[accelerationChartName].ChartArea = "ChartArea1";
-                        foreach (var row in cur.sqlData)
+                        for(var i = 0; i < cur.sqlData.Count(); i++)
+                        //foreach (var row in cur.sqlData)
                         {
-                            Double value = Convert.ToDouble(row[3]);
-                            String date = Convert.ToDateTime(row[2]).ToShortDateString();
+                            Double value = Convert.ToDouble(cur.sqlData[i][3]);
+                            String date = Convert.ToDateTime(cur.sqlData[i][2]).ToShortDateString();
 
                             /* Gráfico de tendência */
                             assetPriceChart.Series[assetChartName].Points.AddXY(date, value);
+                            if (i < linearTrendValues.Count())
+                            {
+                                assetPriceChart.Series[linearTrendName].Points.AddXY(date, linearTrendValues[i]);
+                            }
 
                             /* Gráfico de crescimento */
                             
@@ -109,10 +126,9 @@ namespace FinanceApp
                             /* Gráfico de aceleração */
                             if (hasAuxGrowthValue)
                             {
-                                accelerationValue = growthValue - auxGrowthValue;
+                                accelerationValue = auxGrowthValue - growthValue;
                                 accelerationChart.Series[accelerationChartName].Points.AddXY(date, (accelerationValue));
                             }
-                            growthValue = value;
                         }
                     }
                     else
@@ -124,11 +140,11 @@ namespace FinanceApp
                 {
                     MessageBox.Show("A data final não pode ser anterior a data inicial");
                 }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Ocorreu uma falha grave, por favor comunique o administrador");
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show("Ocorreu uma falha grave, por favor comunique o administrador");
+            //}
 
 
 

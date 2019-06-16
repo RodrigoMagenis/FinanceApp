@@ -48,6 +48,7 @@
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(156, 20);
             this.password.TabIndex = 1;
+            this.password.UseSystemPasswordChar = true;
             // 
             // btncancel
             // 

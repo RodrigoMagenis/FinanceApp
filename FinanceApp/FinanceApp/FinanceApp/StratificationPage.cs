@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -33,27 +28,21 @@ namespace FinanceApp
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
-
-
-            //assetPriceChart.Series.Clear();
-            //assetPriceChart.Series.Add("price");
-            //assetPriceChart.Series["price"].Points.Add();
-            //this.CarregarGrafico();
-
             DateTime dataInicial = dtstart.Value.Date;
             DateTime dataFinal = dtend.Value.Date.AddDays(1); // adiciona um dia para contar no término dele
 
             if ((dataFinal - dataInicial).TotalMilliseconds > 0) //verifica se a data de fim é menor que a data de inicio
             {
                 AssetSql sql = new AssetSql();
-                SqlData cur = sql.getAssetPrices(idasset.Text, dtstart.Text, dtend.Text);
+                List<List<String>> data = sql.getAssetPrices(idasset.Text, dtstart.Text, dtend.Text).sqlData;
 
-                if (cur.sqlData.Count() > 0)
+                if (data.Count() > 0)
                 {
-                    this.LoadAssetChart(cur);
-                    this.LoadGrowthChart(cur);
-                    this.LoadAccelerationChart(cur);
-                    this.ShowReport(cur);
+                    List<List<string>> chartPoints = this.SetPointsToChart(data, 25);
+                    this.LoadAssetChart(chartPoints);
+                    this.LoadGrowthChart(chartPoints);
+                    this.LoadAccelerationChart(chartPoints);
+                    this.ShowReport(chartPoints);
                 }
                 else
                 {
@@ -66,7 +55,36 @@ namespace FinanceApp
             }
         }
 
-        public void LoadAssetChart(SqlData cur)
+        private List<List<string>> SetPointsToChart(List<List<string>> data, int qtPoints)
+        {
+            int sampleSize = Convert.ToInt32(data.Count() / qtPoints);
+            double mean = 0;
+            int count = 0;
+            List<List<string>> Serie = new List<List<string>>();
+            for (var i = 0; i < data.Count(); i++)
+            {
+                count++;
+                mean += Convert.ToDouble(data[i][3]);
+                if((i+1) % sampleSize == 0 )
+                {
+                    //adiciona o valor médio
+                    //adiciona a data
+                    Serie.Add(new List<string> { Convert.ToString(mean / count), data[i][2] });
+                    count = 0;
+                    mean = 0;
+                }
+            }
+
+            //Adiciona o último ponto remanecente
+            if(count != 0)
+            {
+                Serie.Add(new List<string> {Convert.ToString(mean / count), data[data.Count()-1][2]});
+            }
+
+            return Serie;
+        }
+
+        public void LoadAssetChart(List<List<String>> data)
         {
             try
             {
@@ -77,9 +95,9 @@ namespace FinanceApp
                 assetPriceChart.Series[assetChartName].ChartType = SeriesChartType.Line;
                 assetPriceChart.Series[assetChartName].ChartArea = "ChartArea1";
                 List<double> assetValues = new List<double>();
-                foreach (var row in cur.sqlData)
+                foreach (var row in data)
                 {
-                    assetValues.Add(Convert.ToDouble(row[3]));
+                    assetValues.Add(Convert.ToDouble(row[0]));
                 }
                 String linearTrendName = "Trend";
                 assetPriceChart.Series.Add(linearTrendName);
@@ -87,10 +105,10 @@ namespace FinanceApp
                 assetPriceChart.Series[linearTrendName].ChartArea = "ChartArea1";
                 var linearTrendValues = calcFunctions.LinearTrend(assetValues);
 
-                for (var i = 0; i < cur.sqlData.Count(); i++)
+                for (var i = 0; i < data.Count(); i++)
                 {
-                    Double value = Convert.ToDouble(cur.sqlData[i][3]);
-                    String date = Convert.ToDateTime(cur.sqlData[i][2]).ToShortDateString();
+                    Double value = Convert.ToDouble(data[i][0]);
+                    String date = Convert.ToDateTime(data[i][1]).ToShortDateString();
 
                     /*Série de preço*/
                     assetPriceChart.Series[assetChartName].Points.AddXY(date, value);
@@ -108,7 +126,7 @@ namespace FinanceApp
             }
         }
 
-        public void LoadGrowthChart(SqlData cur)
+        public void LoadGrowthChart(List<List<String>> data)
         {
             try
             {
@@ -118,14 +136,42 @@ namespace FinanceApp
                 growthChart.Series[growthChartName].ChartType = SeriesChartType.Line;
                 growthChart.Series[growthChartName].ChartArea = "ChartArea1";
 
-                for (var i = 1; i < cur.sqlData.Count(); i++)
+                //gera pontos no gráfico por semana
+                //double mean = 0;
+                //double aux = 0;
+                //bool hasAux = false;
+                List<double> ChartPointsSeries = new List<double>();
+                for (var i = 1/*0*/; i < data.Count(); i++)
                 {
-                    Double value = Convert.ToDouble(cur.sqlData[i][3]);
-                    Double aux = Convert.ToDouble(cur.sqlData[i-1][3]);
-                    String date = Convert.ToDateTime(cur.sqlData[i][2]).ToShortDateString();
+                    String date = Convert.ToDateTime(data[i][1]).ToShortDateString();
+
+                    //mean += Convert.ToDouble(data[i][3]);
+                    //if( (i+1) % 5 == 0)
+                    //{
+                    //    mean = mean / 5;
+                    //    if (hasAux)
+                    //    {
+                    //        ChartPointsSeries.Add(mean - aux);
+                    //    }
+                    //    aux = mean;
+                    //    mean = 0;
+                    //    hasAux = true;
+                    //}
+
+
+                    Double value = Convert.ToDouble(data[i][0]);
+                    Double aux = Convert.ToDouble(data[i-1][0]);
+                    
 
                     growthChart.Series[growthChartName].Points.AddXY(date, (value - aux));
                 }
+
+                for (var i = 0; i < ChartPointsSeries.Count(); i++)
+                {
+                    growthChart.Series[growthChartName].Points.AddXY((i+1), ChartPointsSeries[i]);
+                }
+
+
             }
             catch (Exception e)
             {
@@ -133,7 +179,7 @@ namespace FinanceApp
             }
         }
 
-        public void LoadAccelerationChart(SqlData cur)
+        public void LoadAccelerationChart(List<List<String>> data)
         {
             try
             {
@@ -143,12 +189,12 @@ namespace FinanceApp
                 accelerationChart.Series[accelerationChartName].ChartType = SeriesChartType.Line;
                 accelerationChart.Series[accelerationChartName].ChartArea = "ChartArea1";
 
-                for (var i = 2; i < cur.sqlData.Count(); i++)
+                for (var i = 2; i < data.Count(); i++)
                 {
-                    Double value = Convert.ToDouble(cur.sqlData[i][3]);
-                    Double aux1 = Convert.ToDouble(cur.sqlData[i-1][3]);
-                    Double aux2 = Convert.ToDouble(cur.sqlData[i-2][3]);
-                    String date = Convert.ToDateTime(cur.sqlData[i][2]).ToShortDateString();
+                    Double value = Convert.ToDouble(data[i][0]);
+                    Double aux1 = Convert.ToDouble(data[i-1][0]);
+                    Double aux2 = Convert.ToDouble(data[i-2][0]);
+                    String date = Convert.ToDateTime(data[i][1]).ToShortDateString();
                     accelerationChart.Series[accelerationChartName].Points.AddXY(date, ((value - aux1) - (aux1 - aux2)));
                 }
             }
@@ -158,56 +204,56 @@ namespace FinanceApp
             }
         }
 
-        public void ShowReport(SqlData cur)
+        public void ShowReport(List<List<String>> data)
         {
-            Double primeirovalor = Convert.ToDouble(cur.sqlData[0][3]);
-            Double ultimovalor = Convert.ToDouble(cur.sqlData[cur.sqlData.Count()-1][3]);
-            Double penultimovalor = Convert.ToDouble(cur.sqlData[cur.sqlData.Count()-2][3]);
+            Double primeirovalor = Convert.ToDouble(data[0][0]);
+            Double ultimovalor = Convert.ToDouble(data[data.Count()-1][0]);
+            Double penultimovalor = Convert.ToDouble(data[data.Count()-2][0]);
             Double media = 0;
-            for (var i = 0; i < cur.sqlData.Count(); i++)
+            for (var i = 0; i < data.Count(); i++)
             {
-                media += Convert.ToDouble(cur.sqlData[i][3]);
+                media += Convert.ToDouble(data[i][0]);
             }
-            media = media / cur.sqlData.Count();
+            media = media / data.Count();
 
             if (primeirovalor <= ultimovalor && penultimovalor <= ultimovalor && ultimovalor <= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Excelente, o Valor está subindo e tende a Subir, com o preço do ativo em Ascenção");
+                MessageBox.Show($"Investimento Excelente, o Valor está subindo e tende a Subir, com o preço do ativo em Ascenção");
             }
 
             else if (primeirovalor <= ultimovalor && penultimovalor <= ultimovalor && ultimovalor >= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Bom, o Valor está subindo mas tende a Cair, mas o preço do ativo está em Ascenção");
+                MessageBox.Show($"Investimento Bom, o Valor está subindo mas tende a Cair, mas o preço do ativo está em Ascenção");
             }
 
             else if (primeirovalor <= ultimovalor && penultimovalor >= ultimovalor && ultimovalor >= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Ruim, o Valor está caindo e tende a Cair, mas o preço do ativo está em Ascenção");
+                MessageBox.Show($"Investimento Ruim, o Valor está caindo e tende a Cair, mas o preço do ativo está em Ascenção");
             }
 
             else if (primeirovalor <= ultimovalor && penultimovalor >= ultimovalor && ultimovalor <= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Ruim, o Valor está caindo mas tende a Subir, e o preço do ativo está em Ascenção");
+                MessageBox.Show($"Investimento Ruim, o Valor está caindo mas tende a Subir, e o preço do ativo está em Ascenção");
             }
 
             else if (primeirovalor >= ultimovalor && penultimovalor >= ultimovalor && ultimovalor >= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Pessimo, o Valor está caindo e tende a Cair, e o preço do ativo está em Declive");
+                MessageBox.Show($"Investimento Pessimo, o Valor está caindo e tende a Cair, e o preço do ativo está em Declive");
             }
 
             else if (primeirovalor >= ultimovalor && penultimovalor <= ultimovalor && ultimovalor >= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Ruim, o Valor está subindo mas tende a Cair, e o preço do ativo está em Declive");
+                MessageBox.Show($"Investimento Ruim, o Valor está subindo mas tende a Cair, e o preço do ativo está em Declive");
             }
 
             else if (primeirovalor >= ultimovalor && penultimovalor <= ultimovalor && ultimovalor <= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Moderado, o Valor tende a Subir, mas o preço do ativo está em Declive");
+                MessageBox.Show($"Investimento Moderado, o Valor tende a Subir, mas o preço do ativo está em Declive");
             }
 
             else if (primeirovalor >= ultimovalor && penultimovalor >= ultimovalor && ultimovalor <= media)
             {
-                System.Windows.Forms.MessageBox.Show($"Investimento Moderado, o Valor está caindo mas tende a Subir, e o preço do ativo está em Declive");
+                MessageBox.Show($"Investimento Moderado, o Valor está caindo mas tende a Subir, e o preço do ativo está em Declive");
             }
         }
     }
